@@ -38,7 +38,6 @@ public class CustomerPanel extends JPanel implements ShopObserver {
         setBorder(new EmptyBorder(15, 15, 15, 15));
         setBackground(Color.WHITE);
 
-        // Header panel
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setBackground(Color.WHITE);
 
@@ -49,7 +48,6 @@ public class CustomerPanel extends JPanel implements ShopObserver {
 
         add(headerPanel, BorderLayout.NORTH);
 
-        // Search and action panel
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.setBackground(Color.WHITE);
 
@@ -74,7 +72,6 @@ public class CustomerPanel extends JPanel implements ShopObserver {
 
         add(topPanel, BorderLayout.BEFORE_FIRST_LINE);
 
-        // Table
         String[] columns = { "ID", "Tên Khách Hàng", "Số Điện Thoại", "Email", "Địa Chỉ" };
         tableModel = new DefaultTableModel(columns, 0) {
             @Override
@@ -91,12 +88,9 @@ public class CustomerPanel extends JPanel implements ShopObserver {
         table.getTableHeader().setForeground(Color.WHITE);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        // Center align ID column
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
         table.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-
-        // Set column widths
         table.getColumnModel().getColumn(0).setPreferredWidth(50);
         table.getColumnModel().getColumn(1).setPreferredWidth(200);
         table.getColumnModel().getColumn(2).setPreferredWidth(120);
@@ -106,7 +100,6 @@ public class CustomerPanel extends JPanel implements ShopObserver {
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane, BorderLayout.CENTER);
 
-        // Button panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         buttonPanel.setBackground(Color.WHITE);
 
@@ -137,7 +130,6 @@ public class CustomerPanel extends JPanel implements ShopObserver {
 
         add(buttonPanel, BorderLayout.SOUTH);
 
-        // Search on text change
         txtSearch.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
             @Override
             public void insertUpdate(javax.swing.event.DocumentEvent e) {

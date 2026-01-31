@@ -26,7 +26,6 @@ public class CustomerChartPanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        // Title Panel
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setBackground(Color.WHITE);
         titlePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 5, 10));
@@ -36,7 +35,6 @@ public class CustomerChartPanel extends JPanel {
         lblTitle.setForeground(new Color(0, 51, 102));
         titlePanel.add(lblTitle, BorderLayout.CENTER);
 
-        // Filter Panel
         JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         filterPanel.setBackground(Color.WHITE);
         filterPanel.add(new JLabel("Thời gian:"));
@@ -49,7 +47,6 @@ public class CustomerChartPanel extends JPanel {
         titlePanel.add(filterPanel, BorderLayout.EAST);
         add(titlePanel, BorderLayout.NORTH);
 
-        // Chart
         DefaultPieDataset dataset = createDataset();
 
         JFreeChart chart = ChartFactory.createPieChart(
@@ -70,7 +67,7 @@ public class CustomerChartPanel extends JPanel {
         plot.setSectionPaint("Khách Vãng Lai (<2tr)", new Color(158, 158, 158));
 
         PieSectionLabelGenerator labelGenerator = new StandardPieSectionLabelGenerator(
-                "{0}: {2}", // Show segment name and percentage
+                "{0}: {2}",
                 new DecimalFormat("0"),
                 new DecimalFormat("0.0%"));
         plot.setLabelGenerator(labelGenerator);
@@ -88,12 +85,10 @@ public class CustomerChartPanel extends JPanel {
         chartPanel.setBackground(Color.WHITE);
         add(chartPanel, BorderLayout.CENTER);
 
-        // Bottom Panel with stats and button
         JPanel bottomPanel = new JPanel(new BorderLayout());
         bottomPanel.setBackground(Color.WHITE);
         bottomPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // Stats Panel
         JPanel statsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 5));
         statsPanel.setBackground(Color.WHITE);
 
@@ -111,7 +106,6 @@ public class CustomerChartPanel extends JPanel {
 
         bottomPanel.add(statsPanel, BorderLayout.NORTH);
 
-        // Button and info
         JPanel buttonInfoPanel = new JPanel(new BorderLayout());
         buttonInfoPanel.setBackground(Color.WHITE);
 

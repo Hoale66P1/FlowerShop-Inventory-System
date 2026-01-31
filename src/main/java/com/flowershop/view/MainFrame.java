@@ -233,7 +233,6 @@ public class MainFrame extends JFrame {
     private void showPanel(JPanel panel, String pageTitle, JMenu activeMenu) {
         currentPageLabel.setText(pageTitle);
 
-        // Reset previous active menu to default styling
         if (lastActiveMenu != null) {
             lastActiveMenu.setOpaque(false);
             lastActiveMenu.setBackground(null);
@@ -242,7 +241,6 @@ public class MainFrame extends JFrame {
             lastActiveMenu.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
         }
 
-        // Apply active styling to new menu
         if (activeMenu != null) {
             activeMenu.setOpaque(true);
             activeMenu.setBackground(new Color(41, 166, 185));

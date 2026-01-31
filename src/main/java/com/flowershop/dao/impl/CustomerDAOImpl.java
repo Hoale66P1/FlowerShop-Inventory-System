@@ -109,7 +109,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public boolean delete(int id) {
-        // Soft delete: set IsActive = 0
         String sql = "UPDATE Customers SET IsActive = 0 WHERE CustomerID = ?";
 
         try (Connection conn = DatabaseConnection.getInstance().getConnection();

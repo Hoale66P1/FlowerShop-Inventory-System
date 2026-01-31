@@ -17,7 +17,6 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public List<ProductDTO> getAll() {
         List<ProductDTO> list = new ArrayList<>();
-        // Query to show each product-warehouse combination separately
         String sql = "SELECT p.*, c.CategoryName, " +
                 "i.WarehouseID, w.WarehouseName, " +
                 "ISNULL(i.QuantityOnHand, 0) AS Stock " +
@@ -43,13 +42,9 @@ public class ProductDAOImpl implements ProductDAO {
                 p.setIsActive(rs.getBoolean("IsActive"));
                 p.setCreatedAt(rs.getTimestamp("CreatedAt"));
                 p.setCategoryName(rs.getString("CategoryName"));
-
-                // Warehouse-specific data (directly from JOIN)
                 p.setWarehouseId(rs.getInt("WarehouseID"));
                 p.setWarehouseName(rs.getString("WarehouseName"));
                 p.setQuantityOnHand(rs.getInt("Stock"));
-
-                // Get purchase price
                 p.setPurchasePrice(getLatestPurchasePrice(conn, p.getProductId()));
 
                 list.add(p);
@@ -102,12 +97,9 @@ public class ProductDAOImpl implements ProductDAO {
                     p.setProductName(rs.getString("ProductName"));
                     p.setCategoryId(rs.getInt("CategoryID"));
                     p.setSku(rs.getString("SKU"));
-
                     p.setPrice(rs.getBigDecimal("UnitPrice"));
-
                     p.setReorderLevel(rs.getInt("ReorderLevel"));
                     p.setIsActive(rs.getBoolean("IsActive"));
-
                     p.setQuantityOnHand(rs.getInt("Stock"));
 
                     return p;

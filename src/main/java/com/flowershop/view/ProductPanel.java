@@ -262,7 +262,6 @@ public class ProductPanel extends JPanel implements ShopObserver {
     }
 
     private void loadFilters() {
-        // Load categories
         cboCategoryFilter.removeAllItems();
         CategoryDTO allCat = new CategoryDTO();
         allCat.setCategoryId(0);
@@ -274,7 +273,6 @@ public class ProductPanel extends JPanel implements ShopObserver {
             cboCategoryFilter.addItem(c);
         }
 
-        // Load warehouses
         cboWarehouseFilter.removeAllItems();
         WarehouseDTO allWh = new WarehouseDTO();
         allWh.setWarehouseId(0);
@@ -315,16 +313,13 @@ public class ProductPanel extends JPanel implements ShopObserver {
         List<ProductDTO> list = productService.getAllProducts();
 
         for (ProductDTO p : list) {
-            // Filter by search keyword (product name)
             boolean nameMatch = searchKeyword.isEmpty() ||
                     p.getProductName().toLowerCase().contains(searchKeyword);
 
-            // Filter by category
             boolean categoryMatch = selectedCategory == null ||
                     selectedCategory.getCategoryId() == 0 ||
                     p.getCategoryId() == selectedCategory.getCategoryId();
 
-            // Filter by warehouse
             boolean warehouseMatch = selectedWarehouse == null ||
                     selectedWarehouse.getWarehouseId() == 0 ||
                     p.getWarehouseId() == selectedWarehouse.getWarehouseId();

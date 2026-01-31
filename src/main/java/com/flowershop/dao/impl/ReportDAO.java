@@ -71,15 +71,9 @@ public class ReportDAO {
         return stats;
     }
 
-    /**
-     * Enhanced customer segmentation with revenue data
-     * 
-     * @param period "month", "quarter", "year", or "all"
-     * @return Map of segment name to [count, revenue]
-     */
     public Map<String, double[]> getCustomerSegmentationDetailed(String period) {
         Map<String, double[]> stats = new HashMap<>();
-        stats.put("Khách VIP (≥10tr)", new double[] { 0, 0 }); // [count, revenue]
+        stats.put("Khách VIP (≥10tr)", new double[] { 0, 0 });
         stats.put("Khách Thân Thiết (≥2tr)", new double[] { 0, 0 });
         stats.put("Khách Vãng Lai (<2tr)", new double[] { 0, 0 });
 
@@ -108,8 +102,8 @@ public class ReportDAO {
                 }
 
                 double[] data = stats.get(segment);
-                data[0]++; // Increment count
-                data[1] += total; // Add revenue
+                data[0]++;
+                data[1] += total;
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -17,20 +17,16 @@ public class CustomerDialog extends JDialog {
     private boolean saved = false;
     private CustomerDTO customer;
 
-    // Email regex pattern
     private static final Pattern EMAIL_PATTERN = Pattern.compile(
             "^[A-Za-z0-9+_.-]+@(.+)$");
 
-    // Phone regex pattern (10-11 digits)
     private static final Pattern PHONE_PATTERN = Pattern.compile(
             "^0\\d{9,10}$");
 
-    // Constructor for Add mode
     public CustomerDialog(Frame parent) {
         this(parent, null);
     }
 
-    // Constructor for Edit mode
     public CustomerDialog(Frame parent, CustomerDTO customer) {
         super(parent, customer == null ? "Thêm Khách Hàng" : "Sửa Khách Hàng", true);
         this.customer = customer;
@@ -48,14 +44,12 @@ public class CustomerDialog extends JDialog {
     private void initComponents() {
         setLayout(new BorderLayout(10, 10));
 
-        // Main panel
         JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(5, 5, 5, 5);
 
-        // Customer Name
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.weightx = 0.3;
@@ -68,7 +62,6 @@ public class CustomerDialog extends JDialog {
         txtName = new JTextField(20);
         mainPanel.add(txtName, gbc);
 
-        // Phone
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.weightx = 0.3;
@@ -81,7 +74,6 @@ public class CustomerDialog extends JDialog {
         txtPhone = new JTextField(20);
         mainPanel.add(txtPhone, gbc);
 
-        // Email
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.weightx = 0.3;
@@ -92,7 +84,6 @@ public class CustomerDialog extends JDialog {
         txtEmail = new JTextField(20);
         mainPanel.add(txtEmail, gbc);
 
-        // Address
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.weightx = 0.3;
@@ -111,7 +102,6 @@ public class CustomerDialog extends JDialog {
 
         add(mainPanel, BorderLayout.CENTER);
 
-        // Button panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
         btnSave = new JButton("Lưu");
@@ -142,13 +132,11 @@ public class CustomerDialog extends JDialog {
     }
 
     private void saveCustomer() {
-        // Validate input
         String name = txtName.getText().trim();
         String phone = txtPhone.getText().trim();
         String email = txtEmail.getText().trim();
         String address = txtAddress.getText().trim();
 
-        // Validate required fields
         if (name.isEmpty()) {
             JOptionPane.showMessageDialog(this,
                     "Vui lòng nhập tên khách hàng!",
@@ -167,7 +155,6 @@ public class CustomerDialog extends JDialog {
             return;
         }
 
-        // Validate phone format
         if (!PHONE_PATTERN.matcher(phone).matches()) {
             JOptionPane.showMessageDialog(this,
                     "Số điện thoại không hợp lệ!\nĐịnh dạng: 0xxxxxxxxx (10-11 số)",
@@ -177,7 +164,6 @@ public class CustomerDialog extends JDialog {
             return;
         }
 
-        // Validate email if provided
         if (!email.isEmpty() && !EMAIL_PATTERN.matcher(email).matches()) {
             JOptionPane.showMessageDialog(this,
                     "Email không hợp lệ!",
@@ -187,7 +173,6 @@ public class CustomerDialog extends JDialog {
             return;
         }
 
-        // Create or update customer
         if (customer == null) {
             customer = new CustomerDTO();
         }

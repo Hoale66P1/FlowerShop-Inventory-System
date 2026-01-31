@@ -71,7 +71,6 @@ public class SalesPanel extends JPanel implements ShopObserver {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Warehouse selector
         gbc.gridx = 0;
         gbc.gridy = 0;
         JLabel lblWarehouse = new JLabel("Kho Xuất:");
@@ -84,7 +83,6 @@ public class SalesPanel extends JPanel implements ShopObserver {
         cboWarehouse.addActionListener(e -> filterProductsByWarehouse());
         formPanel.add(cboWarehouse, gbc);
 
-        // Product selector
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.weightx = 0;
@@ -197,7 +195,6 @@ public class SalesPanel extends JPanel implements ShopObserver {
             return;
         }
 
-        // Filter products by selected warehouse
         for (ProductDTO p : allProducts) {
             if (p.getWarehouseId() == selectedWarehouse.getWarehouseId()) {
                 cboProduct.addItem(p);

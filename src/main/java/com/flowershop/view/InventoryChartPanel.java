@@ -23,7 +23,7 @@ public class InventoryChartPanel extends JPanel {
     private ChartCanvas canvas;
     private JScrollPane scrollPane;
     private JComboBox<String> cboWarehouse;
-    private Map<String, Integer> warehouseMap; // name -> id
+    private Map<String, Integer> warehouseMap;
 
     public InventoryChartPanel() {
         this.productService = new ProductServiceImpl();
@@ -34,7 +34,6 @@ public class InventoryChartPanel extends JPanel {
         setBackground(Color.WHITE);
         setBorder(new EmptyBorder(10, 10, 10, 10));
 
-        // Title and Filter Panel
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.setBackground(Color.WHITE);
         topPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
@@ -45,7 +44,6 @@ public class InventoryChartPanel extends JPanel {
         lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
         topPanel.add(lblTitle, BorderLayout.CENTER);
 
-        // Filter panel
         JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         filterPanel.setBackground(Color.WHITE);
         filterPanel.add(new JLabel("Kho:"));
@@ -58,7 +56,6 @@ public class InventoryChartPanel extends JPanel {
         topPanel.add(filterPanel, BorderLayout.EAST);
         add(topPanel, BorderLayout.NORTH);
 
-        // Create canvas FIRST before calling updateChart
         canvas = new ChartCanvas();
         scrollPane = new JScrollPane(canvas);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
@@ -76,7 +73,6 @@ public class InventoryChartPanel extends JPanel {
         pnlBottom.add(btnRefresh);
         add(pnlBottom, BorderLayout.SOUTH);
 
-        // Load warehouses and update chart AFTER canvas is created
         loadWarehouses();
         updateChart();
     }
@@ -85,11 +81,9 @@ public class InventoryChartPanel extends JPanel {
         cboWarehouse.removeAllItems();
         warehouseMap.clear();
 
-        // Add "All" option
         cboWarehouse.addItem("Tổng hợp");
         warehouseMap.put("Tổng hợp", -1);
 
-        // Add individual warehouses
         List<WarehouseDTO> warehouses = warehouseService.getAllWarehouses();
         for (WarehouseDTO w : warehouses) {
             cboWarehouse.addItem(w.getWarehouseName());
@@ -111,16 +105,13 @@ public class InventoryChartPanel extends JPanel {
         }
 
         if (warehouseId == -1) {
-            // Aggregate by product
             Map<Integer, ProductDTO> aggregated = new HashMap<>();
 
             for (ProductDTO p : allProducts) {
                 if (aggregated.containsKey(p.getProductId())) {
-                    // Add quantity to existing
                     ProductDTO existing = aggregated.get(p.getProductId());
                     existing.setQuantityOnHand(existing.getQuantityOnHand() + p.getQuantityOnHand());
                 } else {
-                    // Create new entry
                     ProductDTO newProduct = new ProductDTO();
                     newProduct.setProductId(p.getProductId());
                     newProduct.setProductName(p.getProductName());
@@ -134,7 +125,6 @@ public class InventoryChartPanel extends JPanel {
 
             productList = new ArrayList<>(aggregated.values());
         } else {
-            // Filter by warehouse
             productList = new ArrayList<>();
             for (ProductDTO p : allProducts) {
                 if (p.getWarehouseId() == warehouseId) {
@@ -156,8 +146,6 @@ public class InventoryChartPanel extends JPanel {
 
         public ChartCanvas() {
             setBackground(Color.WHITE);
-
-            // Add mouse click listener to show product details
             addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -188,8 +176,6 @@ public class InventoryChartPanel extends JPanel {
                 int barHeight = (int) (((double) qty / maxQty) * drawHeight);
                 int x = PADDING_LEFT + i * (BAR_WIDTH + GAP) + 10;
                 int y = height - PADDING_BOTTOM - barHeight;
-
-                // Check if clicking on bar OR product name label
                 int labelY = height - PADDING_BOTTOM + 5;
                 int labelHeight = 25;
 

@@ -138,7 +138,6 @@ public class WarehouseTransferDAOImpl implements WarehouseTransferDAO {
             conn = DatabaseConnection.getInstance().getConnection();
             conn.setAutoCommit(false);
 
-            // Get transfer details (inline query to use same connection)
             WarehouseTransferDTO transfer = null;
             String getTransferSql = "SELECT wt.TransferID, wt.ProductID, p.ProductName, " +
                     "wt.FromWarehouseID, w1.WarehouseName as FromWarehouse, " +
@@ -176,7 +175,6 @@ public class WarehouseTransferDAOImpl implements WarehouseTransferDAO {
                 return false;
             }
 
-            // 1. Check source warehouse inventory and validate quantity
             String checkSourceSql = "SELECT QuantityOnHand FROM Inventory " +
                     "WHERE ProductID = ? AND WarehouseID = ?";
             int sourceQuantity = 0;
@@ -204,7 +202,6 @@ public class WarehouseTransferDAOImpl implements WarehouseTransferDAO {
                 return false;
             }
 
-            // 2. Check if destination warehouse has inventory record
             String checkDestSql = "SELECT COUNT(*) as cnt FROM Inventory " +
                     "WHERE ProductID = ? AND WarehouseID = ?";
             boolean destExists = false;
@@ -217,7 +214,6 @@ public class WarehouseTransferDAOImpl implements WarehouseTransferDAO {
                 }
             }
 
-            // 3. Create inventory record for destination if it doesn't exist
             if (!destExists) {
                 String insertDestSql = "INSERT INTO Inventory (ProductID, WarehouseID, QuantityOnHand, QuantityReserved) "
                         +
@@ -235,7 +231,6 @@ public class WarehouseTransferDAOImpl implements WarehouseTransferDAO {
                 }
             }
 
-            // 4. Update source warehouse (decrease quantity)
             String updateFromSql = "UPDATE Inventory SET QuantityOnHand = QuantityOnHand - ? " +
                     "WHERE ProductID = ? AND WarehouseID = ?";
             try (PreparedStatement ps = conn.prepareStatement(updateFromSql)) {
@@ -250,7 +245,6 @@ public class WarehouseTransferDAOImpl implements WarehouseTransferDAO {
                 }
             }
 
-            // 5. Update destination warehouse (increase quantity)
             String updateToSql = "UPDATE Inventory SET QuantityOnHand = QuantityOnHand + ? " +
                     "WHERE ProductID = ? AND WarehouseID = ?";
             try (PreparedStatement ps = conn.prepareStatement(updateToSql)) {
@@ -265,7 +259,6 @@ public class WarehouseTransferDAOImpl implements WarehouseTransferDAO {
                 }
             }
 
-            // 6. Record stock movement for source warehouse (OUT)
             String movementSql = "INSERT INTO StockMovements (ProductID, WarehouseID, MovementType, " +
                     "Quantity, ReferenceType, ReferenceID, Notes) " +
                     "VALUES (?, ?, 'TRANSFER', ?, 'WarehouseTransfer', ?, ?)";
@@ -278,7 +271,6 @@ public class WarehouseTransferDAOImpl implements WarehouseTransferDAO {
                 ps.executeUpdate();
             }
 
-            // 7. Record stock movement for destination warehouse (IN)
             try (PreparedStatement ps = conn.prepareStatement(movementSql)) {
                 ps.setInt(1, transfer.getProductId());
                 ps.setInt(2, transfer.getToWarehouseId());
@@ -288,7 +280,6 @@ public class WarehouseTransferDAOImpl implements WarehouseTransferDAO {
                 ps.executeUpdate();
             }
 
-            // 8. Update transfer status to Completed
             String statusSql = "UPDATE WarehouseTransfers SET Status = 'Completed' WHERE TransferID = ?";
             try (PreparedStatement ps = conn.prepareStatement(statusSql)) {
                 ps.setInt(1, transferId);
