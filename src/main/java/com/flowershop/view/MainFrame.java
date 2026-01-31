@@ -237,7 +237,7 @@ public class MainFrame extends JFrame {
             lastActiveMenu.setOpaque(false);
             lastActiveMenu.setBackground(null);
             lastActiveMenu.setForeground(Color.WHITE);
-            lastActiveMenu.setFont(new Font("Segoe UI", Font.BOLD, 14)); // Reset to original
+            lastActiveMenu.setFont(new Font("Segoe UI", Font.BOLD, 14));
             lastActiveMenu.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
         }
 

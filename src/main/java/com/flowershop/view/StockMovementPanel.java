@@ -63,7 +63,6 @@ public class StockMovementPanel extends JPanel {
         table.getColumnModel().getColumn(7).setPreferredWidth(200);
 
         table.getColumnModel().getColumn(4).setCellRenderer(new TransactionTypeCellRenderer());
-
         table.getColumnModel().getColumn(5).setCellRenderer(new QuantityCellRenderer());
 
         JScrollPane scrollPane = new JScrollPane(table);

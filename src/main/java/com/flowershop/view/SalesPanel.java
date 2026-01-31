@@ -284,7 +284,7 @@ public class SalesPanel extends JPanel implements ShopObserver {
 
             SalesOrderDTO order = new SalesOrderDTO();
             order.setCustomerId(selectedCustomer.getCustomerId());
-            order.setWarehouseId(selectedWarehouse.getWarehouseId()); // Set warehouse ID
+            order.setWarehouseId(selectedWarehouse.getWarehouseId());
             order.setTotalAmount(totalAmount);
             order.setNotes("Khách hàng: " + selectedCustomer.getCustomerName() +
                     " | Kho: " + selectedWarehouse.getWarehouseName());
@@ -309,7 +309,7 @@ public class SalesPanel extends JPanel implements ShopObserver {
                                 "Tổng tiền: " + new DecimalFormat("#,###").format(totalAmount) + " VND");
                 txtQuantity.setText("");
                 lblTotalPrice.setText("0 VND");
-                loadAllProducts(); // Reload to refresh stock
+                loadAllProducts();
             } else {
                 JOptionPane.showMessageDialog(this, "Thanh toán thất bại! Vui lòng kiểm tra lại.", "Lỗi",
                         JOptionPane.ERROR_MESSAGE);
