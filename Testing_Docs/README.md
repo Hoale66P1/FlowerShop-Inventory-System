@@ -1,10 +1,10 @@
-# 📚 Testing Documentation - Flower Shop Inventory System
+# Testing Documentation - Flower Shop Inventory System
 
 > Bộ tài liệu kiểm thử hoàn chỉnh cho module Inventory Management của hệ thống Flower Shop
 
 ---
 
-## 📋 Mục Lục
+## Mục Lục
 
 - [Giới Thiệu](#giới-thiệu)
 - [Cấu Trúc Tài Liệu](#cấu-trúc-tài-liệu)
@@ -16,7 +16,7 @@
 
 ---
 
-## 🎯 Giới Thiệu
+## Giới Thiệu
 
 Bộ tài liệu này cung cấp **đầy đủ test cases, test data, và quy trình kiểm thử** cho module Inventory Management của hệ thống Flower Shop. Được thiết kế để đảm bảo chất lượng sản phẩm thông qua việc kiểm thử có hệ thống và toàn diện.
 
@@ -40,11 +40,11 @@ Tài liệu này cover **3 chức năng chính**:
 
 ---
 
-## 📁 Cấu Trúc Tài Liệu
+## Cấu Trúc Tài Liệu
 
 Bộ tài liệu gồm **10 files** được tổ chức như sau:
 
-### 1️⃣ Requirements & Planning
+### 1. Requirements & Planning
 
 | File | Mô Tả | Kích Thước |
 |------|-------|------------|
@@ -60,7 +60,7 @@ Bộ tài liệu gồm **10 files** được tổ chức như sau:
 
 ---
 
-### 2️⃣ Test Cases (34 Test Cases)
+### 2. Test Cases (34 Test Cases)
 
 | File | Feature | Số Test Cases | Kích Thước |
 |------|---------|---------------|------------|
@@ -70,30 +70,30 @@ Bộ tài liệu gồm **10 files** được tổ chức như sau:
 
 #### Chi Tiết Test Cases:
 
-**🔐 Login (8 test cases)**
-- ✅ Đăng nhập thành công
-- ❌ Username/Password sai
-- 🔒 Khóa tài khoản sau 3 lần sai
-- 🛡️ SQL Injection prevention
-- 🔤 Password case sensitive
+**Login (8 test cases)**
+- Đăng nhập thành công
+- Username/Password sai
+- Khóa tài khoản sau 3 lần sai
+- SQL Injection prevention
+- Password case sensitive
 
-**➕ Add Product (13 test cases)**
-- ✅ Thêm sản phẩm hợp lệ
-- 📋 Validate Business Rules (BR_01, BR_02, BR_03)
-- 🔢 Boundary testing (giá = 0, số lượng = 0)
-- ⚠️ Negative testing (giá âm, required fields)
-- 🔤 Special characters và data types
+**Add Product (13 test cases)**
+- Thêm sản phẩm hợp lệ
+- Validate Business Rules (BR_01, BR_02, BR_03)
+- Boundary testing (giá = 0, số lượng = 0)
+- Negative testing (giá âm, required fields)
+- Special characters và data types
 
-**🔍 Search (13 test cases)**
-- 🎯 Exact match và partial match
-- 🔢 Search by ID
-- 🔠 Case insensitive
-- 🛡️ SQL Injection prevention
-- ⚡ Performance testing
+**Search (13 test cases)**
+- Exact match và partial match
+- Search by ID
+- Case insensitive
+- SQL Injection prevention
+- Performance testing
 
 ---
 
-### 3️⃣ Test Data & Database
+### 3. Test Data & Database
 
 | File | Mô Tả | Kích Thước |
 |------|-------|------------|
@@ -116,7 +116,7 @@ Bộ tài liệu gồm **10 files** được tổ chức như sau:
 
 ---
 
-### 4️⃣ Traceability & Reporting
+### 4. Traceability & Reporting
 
 | File | Mô Tả | Kích Thước |
 |------|-------|------------|
@@ -125,7 +125,7 @@ Bộ tài liệu gồm **10 files** được tổ chức như sau:
 | [`10_BugReport_Template.md`](10_BugReport_Template.md) | Template báo cáo bug | 9.3 KB |
 
 **Traceability Matrix:**
-- ✅ 100% coverage cho 6 requirements
+- 100% coverage cho 6 requirements
 - Mapping 34 test cases → 3 FR + 3 BR
 - Test execution tracking
 - Defect tracking by requirement
@@ -138,72 +138,72 @@ Bộ tài liệu gồm **10 files** được tổ chức như sau:
 
 ---
 
-## 📊 Thống Kê
+## Thống Kê
 
 ### Test Coverage
 
 ```
-📌 Total Requirements: 6
+Total Requirements: 6
    ├─ Functional Requirements: 3 (FR_01, FR_02, FR_03)
    └─ Business Rules: 3 (BR_01, BR_02, BR_03)
 
-📝 Total Test Cases: 34
+Total Test Cases: 34
    ├─ Login: 8 test cases
    ├─ Add Product: 13 test cases
    └─ Search: 13 test cases
 
-✅ Requirements Coverage: 100%
+Requirements Coverage: 100%
 ```
 
 ### Test Case Distribution
 
 **By Priority:**
 ```
-🔴 Critical:  5 cases (14.7%)
-🟠 High:     13 cases (38.2%)
-🟡 Medium:   13 cases (38.2%)
-🟢 Low:       3 cases (8.8%)
+- Critical:  5 cases (14.7%)
+- High:     13 cases (38.2%)
+- Medium:   13 cases (38.2%)
+- Low:       3 cases (8.8%)
 ```
 
 **By Type:**
 ```
-✅ Positive:   9 cases (26.5%)
-❌ Negative:  17 cases (50.0%)
-📏 Boundary:   5 cases (14.7%)
-🛡️ Security:   3 cases (8.8%)
+-Positive:   9 cases (26.5%)
+- Negative:  17 cases (50.0%)
+- Boundary:   5 cases (14.7%)
+-️ Security:   3 cases (8.8%)
 ```
 
 ### Documents
 
 ```
-📄 Total Files: 10
-💾 Total Size: ~84 KB
-🌐 Language: Tiếng Việt
-📋 Format: Markdown + SQL
+- Total Files: 10
+- Total Size: ~84 KB
+- Language: Tiếng Việt
+- Format: Markdown + SQL
 ```
 
 ---
 
-## 🚀 Hướng Dẫn Sử Dụng
+## Hướng Dẫn Sử Dụng
 
 ### Cho Test Lead
 
 1. **Review kế hoạch**
-   ```
-   📖 Đọc: 02_TestPlan.md
-   🎯 Mục đích: Hiểu strategy, timeline, resources
+   ``` 
+- Đọc: 02_TestPlan.md
+- Mục đích: Hiểu strategy, timeline, resources
    ```
 
 2. **Verify coverage**
    ```
-   📊 Xem: 08_RequirementsTraceabilityMatrix.md
-   ✅ Đảm bảo: 100% requirements covered
+- Xem: 08_RequirementsTraceabilityMatrix.md
+- Đảm bảo: 100% requirements covered
    ```
 
 3. **Assign tasks**
    ```
-   👥 Phân công: Test cases cho team members
-   📅 Timeline: 10 ngày theo test plan
+- Phân công: Test cases cho team members
+- Timeline: 10 ngày theo test plan
    ```
 
 ---
@@ -231,15 +231,15 @@ source 03_SQL_Validation_Queries.sql
 #### Bước 3: Execute Test Cases
 
 ```
-📝 Login Tests
+ Login Tests
    └─ File: 04_TestCases_Login.md
    └─ Execute: TC_LOGIN_001 đến TC_LOGIN_008
 
-📝 Add Product Tests
+ Add Product Tests
    └─ File: 05_TestCases_AddProduct.md
    └─ Execute: TC_ADDPROD_001 đến TC_ADDPROD_013
 
-📝 Search Tests
+ Search Tests
    └─ File: 06_TestCases_Search.md
    └─ Execute: TC_SEARCH_001 đến TC_SEARCH_013
 ```
@@ -257,11 +257,11 @@ FROM users WHERE username = 'testuser';
 #### Bước 5: Report Results
 
 ```
-🐛 Bug Found?
+ Bug Found?
    └─ Use: 10_BugReport_Template.md
    └─ Fill: All sections với screenshot
 
-📊 Test Complete?
+ Test Complete?
    └─ Fill: 09_TestExecutionReport_Template.md
    └─ Update: 08_RequirementsTraceabilityMatrix.md
 ```
@@ -272,13 +272,13 @@ FROM users WHERE username = 'testuser';
 
 1. **Review test cases** để hiểu test scenarios
    ```
-   📖 Files: 04, 05, 06_TestCases_*.md
+ Files: 04, 05, 06_TestCases_*.md
    ```
 
 2. **Reproduce bugs**
    ```
-   🐛 Check: 10_BugReport_Template.md
-   📋 Follow: Steps to Reproduce
+- Check: 10_BugReport_Template.md
+- Follow: Steps to Reproduce
    ```
 
 3. **Validate fixes**
@@ -289,7 +289,7 @@ FROM users WHERE username = 'testuser';
 
 4. **Update bug status**
    ```
-   ✏️ Fill: Root Cause & Fix Details sections
+Fill: Root Cause & Fix Details sections
    ```
 
 ---
@@ -298,42 +298,42 @@ FROM users WHERE username = 'testuser';
 
 1. **Monitor progress**
    ```
-   📊 View: 09_TestExecutionReport_Template.md
-   📈 Metrics: Pass rate, bug count, coverage
+- View: 09_TestExecutionReport_Template.md
+- Metrics: Pass rate, bug count, coverage
    ```
 
 2. **Review risks**
    ```
-   ⚠️ Check: 02_TestPlan.md Section 8
+-️ Check: 02_TestPlan.md Section 8
    ```
 
 3. **Approve release**
    ```
-   ✅ Verify: Exit criteria met
-   📝 Sign-off: Test execution report
+- Verify: Exit criteria met
+- Sign-off: Test execution report
    ```
 
 ---
 
-## 🔄 Workflow Testing
+## Workflow Testing
 
 ### Quy Trình Kiểm Thử Chuẩn
 
 ```mermaid
 graph TD
-    A[📋 Review Test Plan] --> B[⚙️ Setup Environment]
-    B --> C[💾 Load Test Data]
-    C --> D[🧪 Execute Test Cases]
+    A[ Review Test Plan] --> B[ Setup Environment]
+    B --> C[ Load Test Data]
+    C --> D[Execute Test Cases]
     D --> E{Pass?}
-    E -->|Yes| F[✅ Update Traceability Matrix]
-    E -->|No| G[🐛 File Bug Report]
-    G --> H[👨‍💻 Developer Fix]
-    H --> I[🔄 Retest]
+    E -->|Yes| F[Update Traceability Matrix]
+    E -->|No| G[File Bug Report]
+    G --> H[Developer Fix]
+    H --> I[Retest]
     I --> E
     F --> J{All Tests Done?}
     J -->|No| D
-    J -->|Yes| K[📊 Generate Test Report]
-    K --> L[✅ Sign-off]
+    J -->|Yes| K[Generate Test Report]
+    K --> L[Sign-off]
 ```
 
 ### Timeline (10 Ngày)
@@ -349,7 +349,7 @@ graph TD
 
 ---
 
-## 💻 Yêu Cầu Hệ Thống
+## Yêu Cầu Hệ Thống
 
 ### Phần Cứng
 - **RAM:** 4GB minimum
@@ -370,7 +370,7 @@ graph TD
 
 ---
 
-## 📖 Tài Liệu Tham Khảo
+## Tài Liệu Tham Khảo
 
 ### Đọc Theo Thứ Tự
 
@@ -385,44 +385,44 @@ graph TD
 ### Quick Reference
 
 ```
-❓ Cần gì?                    👉 Xem file nào?
+Cần gì?                       Xem file nào?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 Requirements              → 01_TestPlan_Requirements.md
-🎯 Test Strategy             → 02_TestPlan.md
-🧪 Test Cases                → 04, 05, 06_TestCases_*.md
-💾 Test Data                 → 07_TestData.md
-🗄️ SQL Queries               → 03_SQL_Validation_Queries.sql
-📊 Coverage Mapping          → 08_RequirementsTraceabilityMatrix.md
-📝 Report Bug                → 10_BugReport_Template.md
-📈 Test Results              → 09_TestExecutionReport_Template.md
+Requirements              → 01_TestPlan_Requirements.md
+Test Strategy             → 02_TestPlan.md
+Test Cases                → 04, 05, 06_TestCases_*.md
+Test Data                 → 07_TestData.md
+SQL Queries               → 03_SQL_Validation_Queries.sql
+Coverage Mapping          → 08_RequirementsTraceabilityMatrix.md
+Report Bug                → 10_BugReport_Template.md
+Test Results              → 09_TestExecutionReport_Template.md
 ```
 
 ---
 
-## 🎓 Best Practices
+## Best Practices
 
-### ✅ Nên Làm
+### Nên Làm
 
-- ✅ **Đọc kỹ test cases** trước khi execute
-- ✅ **Follow exact steps** trong test cases
-- ✅ **Verify với SQL** sau mỗi test
-- ✅ **Screenshot** khi tìm thấy bug
-- ✅ **Update traceability matrix** real-time
-- ✅ **Backup database** trước khi test
-- ✅ **Use test data** từ file 07_TestData.md
+- **Đọc kỹ test cases** trước khi execute
+- **Follow exact steps** trong test cases
+- **Verify với SQL** sau mỗi test
+- **Screenshot** khi tìm thấy bug
+- **Update traceability matrix** real-time
+- **Backup database** trước khi test
+- **Use test data** từ file 07_TestData.md
 
-### ❌ Không Nên
+### Không Nên
 
-- ❌ **Không test trên production database**
-- ❌ **Không skip preconditions**
-- ❌ **Không modify test data giữa các tests**
-- ❌ **Không assume kết quả** - phải verify
-- ❌ **Không ignore failed tests**
-- ❌ **Không test nhiều cases cùng lúc** - dễ lẫn lộn
+- **Không test trên production database**
+- **Không skip preconditions**
+- **Không modify test data giữa các tests**
+- **Không assume kết quả** - phải verify
+- **Không ignore failed tests**
+- **Không test nhiều cases cùng lúc** - dễ lẫn lộn
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Database Issues
 
@@ -461,7 +461,7 @@ Action:
 
 ---
 
-## 📞 Liên Hệ
+## Liên Hệ
 
 ### Support
 
@@ -478,7 +478,7 @@ Nếu phát hiện lỗi trong tài liệu test:
 
 ---
 
-## 📝 Version History
+## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
@@ -486,26 +486,26 @@ Nếu phát hiện lỗi trong tài liệu test:
 
 ---
 
-## 📜 License
+## License
 
 Tài liệu này là tài sản của dự án Flower Shop Inventory System và chỉ được sử dụng cho mục đích testing nội bộ.
 
 ---
 
-## 🎉 Kết Luận
+## Kết Luận
 
 Bộ tài liệu testing này cung cấp **framework hoàn chỉnh** để đảm bảo chất lượng sản phẩm. Với **34 test cases**, **50+ SQL queries**, và **100% requirements coverage**, team có thể tự tin thực hiện kiểm thử một cách chuyên nghiệp và hiệu quả.
 
-**Happy Testing! 🧪✨**
+**Happy Testing!**
 
 ---
 
 <div align="center">
 
-**📚 Testing Documentation**  
+**Testing Documentation**  
 Flower Shop Inventory System  
 Version 1.0 | 2026
 
-[🏠 Project Home](#) | [📖 Documentation](#) | [🐛 Report Bug](#)
+[Project Home](#) | [Documentation](#) | [Report Bug](#)
 
 </div>

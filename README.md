@@ -69,7 +69,7 @@ Dự án áp dụng triệt để các mẫu thiết kế để đảm bảo cod
     - Tài khoản Admin: `admin` / `123`.
     - Tài khoản Nhân viên: `staff` / `123`.
 
-## 🧪 Testing Documentation
+## Testing Documentation
 
 Dự án đi kèm với **bộ tài liệu kiểm thử hoàn chỉnh** trong thư mục [`Testing_Docs/`](Testing_Docs/):
 
@@ -77,27 +77,27 @@ Dự án đi kèm với **bộ tài liệu kiểm thử hoàn chỉnh** trong th
 
 | Loại | Files | Mô Tả |
 |------|-------|-------|
-| **📘 Planning** | Test Plan, Requirements | Strategy & timeline (10 ngày) |
-| **🧪 Test Cases** | Login, Add Product, Search | 34 test cases (100% coverage) |
-| **💾 Data & DB** | Test Data, SQL Queries | 50+ SQL validation queries |
-| **📊 Tracking** | Traceability Matrix, Reports | Coverage tracking & bug reporting |
+| **Planning** | Test Plan, Requirements | Strategy & timeline (10 ngày) |
+| **Test Cases** | Login, Add Product, Search | 34 test cases (100% coverage) |
+| **Data & DB** | Test Data, SQL Queries | 50+ SQL validation queries |
+| **Tracking** | Traceability Matrix, Reports | Coverage tracking & bug reporting |
 
 ### Thống Kê Testing:
 
 ```
-✅ 3 Functional Requirements (FR_01, FR_02, FR_03)
-✅ 3 Business Rules (BR_01, BR_02, BR_03)
-✅ 34 Test Cases tổng cộng
-✅ 100% Requirements Coverage
-🛡️ Security: SQL Injection prevention, Account locking
-📏 Boundary & Negative testing
+- 3 Functional Requirements (FR_01, FR_02, FR_03)
+- 3 Business Rules (BR_01, BR_02, BR_03)
+- 34 Test Cases tổng cộng
+- 100% Requirements Coverage
+- Security: SQL Injection prevention, Account locking
+- Boundary & Negative testing
 ```
 
 ### Quick Start Testing:
 
 1. **Đọc overview:**
    ```
-   📖 Testing_Docs/README.md
+   Testing_Docs/README.md
    ```
 
 2. **Setup test database:**
@@ -107,17 +107,17 @@ Dự án đi kèm với **bộ tài liệu kiểm thử hoàn chỉnh** trong th
 
 3. **Execute test cases:**
    ```
-   📝 Follow: Testing_Docs/04_TestCases_Login.md
-   📝 Follow: Testing_Docs/05_TestCases_AddProduct.md
-   📝 Follow: Testing_Docs/06_TestCases_Search.md
+   Follow: Testing_Docs/04_TestCases_Login.md
+   Follow: Testing_Docs/05_TestCases_AddProduct.md
+   Follow: Testing_Docs/06_TestCases_Search.md
    ```
 
 4. **Report results:**
    ```
-   📊 Fill: Testing_Docs/09_TestExecutionReport_Template.md
+   Fill: Testing_Docs/09_TestExecutionReport_Template.md
    ```
 
-👉 **Chi tiết:** Xem [`Testing_Docs/README.md`](Testing_Docs/README.md)
+**Chi tiết:** Xem [`Testing_Docs/README.md`](Testing_Docs/README.md)
 
 ---
 Code with <3 by **Hoa Le**
